@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TestMaster</string>
+    <string name="loginHeader">Welcome To Quiz Master</string>
+</resources>

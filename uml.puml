@@ -1,0 +1,170 @@
+@startuml
+class com.example.testmaster.activities.TestActivity {
+~ RecyclerView testRecycler
+~ TextView description
+~ FirebaseFirestore firestore
+~ ArrayList<Test> tests
+~ HashMap<String,Question> questions
+~ int index
+~ Button submit
+~ Button previous
+~ Button next
+~ Question question
+# void onCreate(Bundle)
++ void setUpEventListener()
++ void setUpFireStore()
++ void setUpView()
++ void setUpRecycler()
+}
+class com.example.testmaster.models.Question {
++ String description
++ String option1
++ String option2
++ String option3
++ String option4
++ String answer
++ String userAnswer
++ void setAnswer(String)
++ String getAnswer()
++ String getDescription()
++ String getOption1()
++ String getOption2()
++ String getOption3()
++ String getOption4()
++ String getUserAnswer()
++ void setDescription(String)
++ void setOption1(String)
++ void setOption2(String)
++ void setOption3(String)
++ void setOption4(String)
++ void setUserAnswer(String)
++ String toString()
+}
+class com.example.testmaster.activities.LogIntro {
+- FirebaseAuth mAuth
+~ Button btnGetStarted
+# void onCreate(Bundle)
+}
+class com.example.testmaster.activities.ResultActivity {
+~ Gson gson
+~ Test test
+~ TextView scoreText
+~ TextView textAnswer
+# void onCreate(Bundle)
++ void setUpViews()
++ void setAnswerView()
++ void calculateScore()
+}
+class com.example.testmaster.activities.MainActivity {
+~ MaterialToolbar appBar
+~ ActionBarDrawerToggle actionBarDrawerToggle
+~ DrawerLayout mainDrawer
+~ NavigationView nav_view
+~ RecyclerView testRecyclerView
+~ FloatingActionButton fab
+~ ArrayList<Test> testList
+~ FirebaseFirestore firebaseFirestore
+# void onCreate(Bundle)
+~ void setUpView()
++ void setUpDatePicker()
++ void setUpFireStore()
+- void setUpRecyclerLayout()
+- void setUpDrawerLayout()
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.example.testmaster.adapters.OptionAdapter {
++ List<String> options
++ Question question
+~ Context context
++ OptionViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(OptionViewHolder,int)
++ int getItemCount()
+}
+class com.example.testmaster.adapters.OptionAdapter$OptionViewHolder {
+~ LinearLayout mainLayout
+~ TextView option
+}
+class com.example.testmaster.adapters.ProgrammingAdaptor {
+- String[] data
++ ProgrammingViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ProgrammingViewHolder,int)
++ int getItemCount()
+}
+class com.example.testmaster.adapters.ProgrammingAdaptor$ProgrammingViewHolder {
+~ ImageView img
+~ TextView text
+}
+class com.example.testmaster.models.Test {
++ String id
++ String title
++ HashMap<String,Question> questions
++ String toString()
+}
+class com.example.testmaster.activities.ProfileActivity {
+~ TextView userEmail
+~ Button logout_button
+~ FirebaseAuth auth
+# void onCreate(Bundle)
++ void logOutUser()
+}
+class com.example.testmaster.utils.ColorPicker {
++ {static} String[] colors
+~ {static} int currentColor
++ {static} String getColor()
+}
+class com.example.testmaster.activities.LoginActivity {
+~ EditText EmailAddress
+~ Button btnLogin
+~ TextView textSignUp
+- FirebaseAuth mAuth
+# void onCreate(Bundle)
++ void userSignIn()
+}
+class com.example.testmaster.adapters.TestAdapter {
+- ArrayList<Test> data
+- Context context
++ TestViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(TestViewHolder,int)
++ int getItemCount()
+}
+class com.example.testmaster.adapters.TestAdapter$TestViewHolder {
+~ TextView testTitle
+~ ImageView testIcon
+~ CardView cardContainer
+}
+class com.example.testmaster.activities.SignUpActivity {
+~ EditText signUpEmailAddress
+~ Button btnSignUp
+~ TextView textLogin
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
+}
+class com.example.testmaster.RecyclerPractice {
+~ RecyclerView programmingList
+# void onCreate(Bundle)
+}
+class com.example.testmaster.utils.IconPicker {
+- {static} Integer[] icons
+- {static} int currentIconIndex
++ {static} int getIcon()
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.TestActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.LogIntro
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.ResultActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.MainActivity
+com.example.testmaster.adapters.Adapter <|-- com.example.testmaster.adapters.OptionAdapter
+com.example.testmaster.adapters.OptionAdapter +.. com.example.testmaster.adapters.OptionAdapter$OptionViewHolder
+com.example.testmaster.adapters.ViewHolder <|-- com.example.testmaster.adapters.OptionAdapter$OptionViewHolder
+com.example.testmaster.adapters.Adapter <|-- com.example.testmaster.adapters.ProgrammingAdaptor
+com.example.testmaster.adapters.ProgrammingAdaptor +.. com.example.testmaster.adapters.ProgrammingAdaptor$ProgrammingViewHolder
+com.example.testmaster.adapters.ViewHolder <|-- com.example.testmaster.adapters.ProgrammingAdaptor$ProgrammingViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.ProfileActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.LoginActivity
+com.example.testmaster.adapters.Adapter <|-- com.example.testmaster.adapters.TestAdapter
+com.example.testmaster.adapters.TestAdapter +.. com.example.testmaster.adapters.TestAdapter$TestViewHolder
+com.example.testmaster.adapters.ViewHolder <|-- com.example.testmaster.adapters.TestAdapter$TestViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.activities.SignUpActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.testmaster.RecyclerPractice
+@enduml

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Регистрация"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxEms="20"
+            android:text="Введите свой адрес электронной почты и пароль, чтобы получить доступ к своей учетной записи"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <EditText
+            android:id="@+id/signUpEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="Почта"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/signUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="Повторите пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            app:backgroundTint="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_primary"
+            android:minHeight="28dp"
+            android:padding="12dp"
+            android:textColor="@color/colorPrimaryButton"
+            android:text="Зарегистрироваться" />
+
+        <TextView
+            android:id="@+id/textLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textAlignment="center"
+            android:text="Уже зарегистрированы?" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
